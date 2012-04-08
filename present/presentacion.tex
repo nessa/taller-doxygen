@@ -11,6 +11,7 @@
 \usepackage{licencia}
 \usepackage{eurosym}
 \usepackage{graphics,epsfig, subfigure}
+\usepackage{minted}
 \setbeamertemplate{navigation symbols}{} 
 \setbeamertemplate{footline}[frame number]
 
@@ -49,15 +50,61 @@ Universidad de Cádiz}
   Doxygen es...
 \end{frame}
 
+\begin{frame}{¿Quién usa Doxygen?}
+  \begin{itemize}
+  \item Asterisk
+  \item Gaim
+  \item GNU (Standard C++ Library)
+  \item GraphViz
+  \item OGRE
+  \item Pingus
+  \item ScummVM
+  \item Synergy
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Instalación}
+  \begin{itemize}
+  \item Distribuciones tipo Debian:
+    \begin{minted}[fontsize=\scriptsize, linenos=true]{bash}
+aptitude install doxygen
+    \end{minted}    
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Formatos de salida}
+  \begin{block}{Directamente soportados}
+    \begin{description}
+    \item[HTML] \texttt{GENERATE\_HTML = YES}
+    \item[$\LaTeX$] \texttt{GENERATE\_LATEX = YES}
+    \item[Unix Man] \texttt{GENERATE\_MAN = YES}
+    \item[XML] \texttt{GENERATE\_XML = YES}
+    \end{description}
+  \end{block}
+  \begin{block}{Indirectamente soportados}
+    \begin{description}
+    \item[PDF]
+      \begin{itemize}
+      \item \texttt{ENABLE\_PDFLATEX = YES}
+      \item \texttt{PDF\_HYPERLINKS = YES}
+      \end{itemize}
+    \end{description}
+  \end{block}
+\end{frame}
+
 
 \section{Conclusión}
 
 \begin{frame}{Referencias}
+  \scriptsize
   \begin{thebibliography}{6}
   \bibitem{} \url{http://www.stack.nl/~dimitri/doxygen/}
+  \bibitem{} \url{http://www.stack.nl/~dimitri/doxygen/projects.html}
   \end{thebibliography}
 \end{frame}
 
 \licencia
+
 
 \end{document}
