@@ -1,0 +1,63 @@
+% ===================================================================
+%                   Presentación con Latex Beamer
+% ===================================================================
+\documentclass[12pt,xcolor=svgnames]{beamer}
+%\documentclass[handout,xcolor=svgnames]{beamer} %Version imprimible
+% -------------------------------------------------------------------
+% Paquetes personalizados
+\usepackage{paquetes}
+\usepackage{colores}
+\usepackage{modo}
+\usepackage{licencia}
+\usepackage{eurosym}
+\usepackage{graphics,epsfig, subfigure}
+\setbeamertemplate{navigation symbols}{} 
+\setbeamertemplate{footline}[frame number]
+
+% -------------------------------------------------------------------
+% Info
+% ====
+\title[Doxygen]{Documentación automática con Doxygen}
+\author[Noelia Sales]{Noelia Sales Montes}
+\institute[DV - UCA]{Diseño de Videojuegos\\
+Universidad de Cádiz}
+\date{}
+% -------------------------------------------------------------------
+\logo{\includegraphics[width=1.5cm]{./img/logo}}
+
+% Comienza el documento
+\begin{document}
+% Tikz -> Imágenes
+\tikzstyle{every picture}+=[remember picture]
+% Entorno matemático
+\everymath{\displaystyle}
+% -------------------------------------------------------------------
+
+\begin{frame}
+ \titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Índice} 
+\transboxin
+\tableofcontents
+\end{frame}
+
+\section{Introducción}
+
+\begin{frame}{Doxygen}
+  Doxygen es...
+\end{frame}
+
+
+\section{Conclusión}
+
+\begin{frame}{Referencias}
+  \begin{thebibliography}{6}
+  \bibitem{} \url{http://www.stack.nl/~dimitri/doxygen/}
+  \end{thebibliography}
+\end{frame}
+
+\licencia
+
+\end{document}
