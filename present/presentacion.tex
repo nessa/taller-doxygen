@@ -18,7 +18,7 @@
 % -------------------------------------------------------------------
 % Info
 % ====
-\title[Doxygen]{Documentación automática con Doxygen}
+\title[Doxygen]{Documentación automática\\ con Doxygen}
 \author[Noelia Sales]{Noelia Sales Montes}
 \institute[DV - UCA]{Diseño de Videojuegos\\
 Universidad de Cádiz}
@@ -60,15 +60,18 @@ Universidad de Cádiz}
   \item Pingus
   \item ScummVM
   \item Synergy
+  \item ...\footnote{{\scriptsize \url{http://www.stack.nl/~dimitri/doxygen/projects.html}}}
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Instalación}
+  GNU/Linux - Distribuciones tipo Debian:
+  \begin{minted}[fontsize=\footnotesize]{bash}
+$ aptitude install doxygen texlive graphviz
+$ aptitude install doxygen-gui doxymacs
+  \end{minted}    
   \begin{itemize}
-  \item Distribuciones tipo Debian:
-    \begin{minted}[fontsize=\scriptsize, linenos=true]{bash}
-aptitude install doxygen
-    \end{minted}    
+  \item $\LaTeX$
   \end{itemize}
 \end{frame}
 
@@ -100,7 +103,6 @@ aptitude install doxygen
   \scriptsize
   \begin{thebibliography}{6}
   \bibitem{} \url{http://www.stack.nl/~dimitri/doxygen/}
-  \bibitem{} \url{http://www.stack.nl/~dimitri/doxygen/projects.html}
   \end{thebibliography}
 \end{frame}
 
