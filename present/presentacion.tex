@@ -19,7 +19,7 @@
 % Info
 % ====
 \title[Doxygen]{Documentación automática\\ con Doxygen}
-\author[Noelia Sales]{Noelia Sales Montes}
+\author[Noelia Sales]{Noelia Sales Montes\\\texttt{noelia.sales@uca.es}}
 \institute[DV - UCA]{Diseño de Videojuegos\\
 Universidad de Cádiz}
 \date{}
@@ -47,7 +47,20 @@ Universidad de Cádiz}
 \section{Introducción}
 
 \begin{frame}{Doxygen}
-  Doxygen es...
+  \begin{center}
+   {\large Doxygen es una herramienta de generación automática de
+     documentación.}
+ \end{center}
+
+ \pause
+ Permite:
+ \begin{enumerate}
+ \item<2-> Generar documentación on-line y manuales de referencia off-line.
+ \item<3-> Extraer la estructura de ficheros de código \textbf{no
+     documentados}.
+ \item<4-> Generar documentación de ficheros \textbf{expresamente documentados}
+   al ``estilo Doxygen''.
+ \end{enumerate}
 \end{frame}
 
 \begin{frame}{¿Quién usa Doxygen?}
@@ -64,8 +77,21 @@ Universidad de Cádiz}
   \end{itemize}
 \end{frame}
 
+\section{Funcionamiento}
+
+\begin{frame}{¿Cómo funciona Doxygen?}    
+  \begin{cambiarmargen}{-1.2cm}{-1cm}
+    \begin{figure}
+      \centering
+      \includegraphics[width=1.1\textwidth]{./img/funcionamiento}
+    \end{figure}
+  \end{cambiarmargen}
+\end{frame}
+
 \begin{frame}[fragile]{Instalación}
-  GNU/Linux - Distribuciones tipo Debian:
+  GNU/Linux\footnote{Está disponible para la mayoría de distribuciones \\
+    de GNU/Linux y para otros sistemas operativos.} - Distribuciones tipo
+  Debian:
   \begin{minted}[fontsize=\footnotesize]{bash}
 $ aptitude install doxygen texlive graphviz
 $ aptitude install doxygen-gui doxymacs
@@ -79,6 +105,11 @@ $ aptitude install doxygen-gui doxymacs
   \end{itemize}
 \end{frame}
 
+\begin{frame}{Lenguajes de entrada}
+  \begin{itemize}
+  \item Lenguajes similares a C: C, C++, C\#, Objective-C, PHP, Java
+  \end{itemize}
+\end{frame}
 
 \begin{frame}{Formatos de salida}
   \begin{block}{Directamente soportados}
@@ -100,6 +131,69 @@ $ aptitude install doxygen-gui doxymacs
   \end{block}
 \end{frame}
 
+\section{Documentación}
+
+\begin{frame}[fragile]{Bloques de documentación}
+  \begin{minted}[fontsize=\footnotesize]{c++}
+/**
+ * Comentario al estilo JavaDoc
+ */
+
+///
+/// Comentarios C++ (son tres barras, no dos)
+///
+
+/*!
+ * Comentario al estilo Qt
+ */
+
+/*****************************************//**
+ * Comentario muy visible
+ *********************************************/
+  \end{minted}
+\end{frame}
+
+\begin{frame}{Documentación de un elemento\footnote{Todas son opcionales.}}
+  \begin{enumerate}
+  \item \textsc{Descripción corta}
+    \begin{itemize}
+    \item Explicación breve en una línea.
+    \item Se puede indicar explícitamente con el parámetro \texttt{@brief}.
+    \end{itemize}
+  \item \textsc{Descripción larga}
+    \begin{itemize}
+    \item Párrafo con varias líneas.
+    \item Es \textbf{necesario} indicar un salto de línea entre la descripción
+      corta y ésta.
+    \item \texttt{JAVADOC\_AUTOBRIEF = YES}: la descripción larga comienza tras
+      el primer punto en comentarios tipo JavaDoc.
+    \end{itemize}
+  \item \textsc{Elementos adicionales}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Elementos adicionales}
+  \begin{itemize}
+  \item \texttt{@author}:
+  \item \texttt{@date}:
+  \item \texttt{@exception}:
+  \item \texttt{@todo}:
+  \item \texttt{@\{ - @\}}: Agrupación de elementos.
+  \item Otros: \texttt{@class}, \texttt{@union}, \texttt{@enum}, \texttt{@fn}
+    (función), \texttt{@file}, \texttt{@typedef}, \texttt{@namespace},
+    \texttt{@package}, \texttt{@interface}, ...
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Ejemplo}
+  \begin{minted}[fontsize=\footnotesize]{c++}
+/// @ {
+/// @name Coordenadas de las ventanas
+float x ;
+float y ;
+/// @ }
+\end{minted}
+\end{frame}
 
 \section{Conclusión}
 
@@ -107,7 +201,22 @@ $ aptitude install doxygen-gui doxymacs
   \scriptsize
   \begin{thebibliography}{6}
   \bibitem{} \url{http://www.stack.nl/~dimitri/doxygen/}
+  \bibitem{} \url{http://www.stack.nl/~dimitri/doxygen/manual.html}
   \end{thebibliography}
+\end{frame}
+
+\begin{frame}{Para terminar}
+
+  Agradecimientos a:
+  \begin{itemize}
+  \item Rafael Rodríguez Galván y José Tomás Tocino García, por poder
+    inspirarme en sus talleres.
+  \item Dimitri van Heesch, quien desarrolló y liberó Doxygen.
+  \end{itemize}
+  \vspace*{1cm}
+  \begin{center}
+    {\Large ¿Alguna pregunta?}
+  \end{center}
 \end{frame}
 
 \licencia
