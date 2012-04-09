@@ -88,6 +88,23 @@ Universidad de Cádiz}
   \end{cambiarmargen}
 \end{frame}
 
+\begin{frame}{¿Cómo funciona Doxygen?}
+  \begin{enumerate}
+  \item Documentar el código.
+  \item Generar el fichero de configuración: 
+    \begin{center}\texttt{doxygen -g}\end{center}
+  \item Editar el fichero de configuración.
+  \item Generar la configuración:
+    \begin{center}\texttt{doxygen [doxyfile]}\end{center}
+  \end{enumerate}
+
+  \begin{block}{Actualización}
+    Si tienes un \textit{doxyfile} generado con una versión anterior de
+    Doxygen, puedes actualizarlo:
+    \begin{center}\texttt{doxygen -u [doxyfile]}\end{center}
+  \end{block}
+\end{frame}
+
 \begin{frame}[fragile]{Instalación}
   GNU/Linux\footnote{Está disponible para la mayoría de distribuciones \\
     de GNU/Linux y para otros sistemas operativos.} - Distribuciones tipo
@@ -108,6 +125,10 @@ $ aptitude install doxygen-gui doxymacs
 \begin{frame}{Lenguajes de entrada}
   \begin{itemize}
   \item Lenguajes similares a C: C, C++, C\#, Objective-C, PHP, Java
+  \item Python
+  \item Fortran
+  \item VHDL
+  \item ...
   \end{itemize}
 \end{frame}
 
