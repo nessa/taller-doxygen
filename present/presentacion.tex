@@ -79,6 +79,23 @@ Universidad de Cádiz}
 
 \section{Funcionamiento}
 
+\begin{frame}[fragile]{Instalación}
+  GNU/Linux\footnote{Está disponible para la mayoría de distribuciones \\
+    de GNU/Linux y para otros sistemas operativos.} - Distribuciones tipo
+  Debian:
+  \begin{minted}[fontsize=\footnotesize]{bash}
+$ aptitude install doxygen texlive graphviz
+$ aptitude install doxygen-gui doxymacs
+  \end{minted}    
+  \begin{itemize}
+  \item \texttt{doxygen} $\longrightarrow$ Paquete completo
+  \item \texttt{texlive} $\longrightarrow$ $\LaTeX$
+  \item \texttt{graphviz} $\longrightarrow$ Generación de grafos
+  \item \texttt{doxygen-gui} $\longrightarrow$ Interfaz gráfica (opcional)
+  \item \texttt{doxymacs} $\longrightarrow$ Modo para Emacs
+  \end{itemize}
+\end{frame}
+
 \begin{frame}{¿Cómo funciona Doxygen?}    
   \begin{cambiarmargen}{-1.2cm}{-1cm}
     \begin{figure}
@@ -98,33 +115,68 @@ Universidad de Cádiz}
     \begin{center}\texttt{doxygen [doxyfile]}\end{center}
   \end{enumerate}
 
-  \begin{block}{Actualización}
+  \begin{block}{}
     Si tienes un \textit{doxyfile} generado con una versión anterior de
     Doxygen, puedes actualizarlo:
     \begin{center}\texttt{doxygen -u [doxyfile]}\end{center}
   \end{block}
 \end{frame}
 
-\begin{frame}[fragile]{Instalación}
-  GNU/Linux\footnote{Está disponible para la mayoría de distribuciones \\
-    de GNU/Linux y para otros sistemas operativos.} - Distribuciones tipo
-  Debian:
-  \begin{minted}[fontsize=\footnotesize]{bash}
-$ aptitude install doxygen texlive graphviz
-$ aptitude install doxygen-gui doxymacs
-  \end{minted}    
+\begin{frame}[fragile]{Doxyfile\footnote{{\scriptsize \url{http://www.stack.nl/~dimitri/doxygen/config.html}}}}
+  Conjunto de:
   \begin{itemize}
-  \item \texttt{doxygen} $\longrightarrow$ Paquete completo
-  \item \texttt{texlive} $\longrightarrow$ $\LaTeX$
-  \item \texttt{graphviz} $\longrightarrow$ Generación de grafos
-  \item \texttt{doxygen-gui} $\longrightarrow$ Interfaz gráfica (opcional)
-  \item \texttt{doxymacs} $\longrightarrow$ Modo para Emacs
+  \item  \texttt{ETIQUETA = VALOR}
+  \item \texttt{\# Comentarios}
+  \end{itemize}
+  \vspace*{0.5cm}
+  Ejemplo:
+{\scriptsize
+\begin{verbatim}
+DOXYFILE_ENCODING      = UTF-8
+
+# The PROJECT_NAME tag is a single word (or a sequence of
+# words surrounded by quotes) that should identify the project.
+
+PROJECT_NAME           =                                      
+
+# The PROJECT_NUMBER tag can be used to enter a project or revision
+# number. This could be handy for archiving the generated
+# documentation or if some version control system is used.                     
+
+PROJECT_NUMBER         =  
+\end{verbatim}
+}
+\end{frame}
+
+\begin{frame}{Doxyfile}
+  \begin{itemize}
+  \item \texttt{PROJECT\_NAME = Proyecto}
+  \item \texttt{INPUT = <fichero\_o\_directorio\_a\_leer>}
+  \item \texttt{FILE\_PATTERNS = *.h, *.cpp}
+  \item \texttt{OUTPUT\_LANGUAGE = English}
+  \item \texttt{HAVE\_DOT = YES}
+    \begin{itemize}
+    \item  Usar GraphViz
+    \end{itemize}
+  \item \texttt{EXTRACT\_ALL = YES }
+    \begin{itemize}
+    \item Doxygen asumirá que todas las entidades están documentadas, aunque no
+      sea así.
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Lenguajes de entrada}
   \begin{itemize}
-  \item Lenguajes similares a C: C, C++, C\#, Objective-C, PHP, Java
+  \item Lenguajes similares a C:
+    \begin{itemize}
+    \item C
+    \item C++
+    \item C\#
+    \item Objective-C
+    \item PHP
+    \item Java
+    \end{itemize}
   \item Python
   \item Fortran
   \item VHDL
@@ -150,6 +202,58 @@ $ aptitude install doxygen-gui doxymacs
       \end{itemize}
     \end{description}
   \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Ejemplo 1}
+  \begin{enumerate}
+  \item Descargar \textit{octave} y crear el \textit{doxyfile}:\\
+    {\scriptsize
+\begin{verbatim}
+mkdir ejemplo1 && cd ejemplo1
+wget ftp://ftp.octave.org/gnu/octave/octave-3.6.1.tar.bz2
+tar xjf octave-3.6.1
+doxygen -g
+\end{verbatim}
+    }
+  \item Editar el doxyfile:
+    {\scriptsize
+\begin{verbatim}
+INPUT = octave-3.6.1/liboctave
+FILE_PATTERNS = *.h
+GENERATE_HTML = YES
+GENERATE_LATEX = NO
+EXTRACT_ALL = YES
+\end{verbatim}
+    }
+  \item Ejecutar \texttt{doxygen}
+  \item Ver \textit{html/index.html}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Observaciones del ejemplo 1}
+  \begin{itemize}
+  \item Se generan enlaces de forma automática:
+    \begin{itemize}
+    \item Listado de ficheros
+    \item Listados de clases (alfabético/jeraquizado) y de miembros
+    \item En cada clase: 
+      \begin{itemize}
+      \item Enlace al fichero fuente
+      \item Enlace a la documentación de cada miembro
+      \end{itemize}
+    \end{itemize}
+  \item Se generan automáticamente diagramas de herencia
+    \begin{itemize}
+    \item \texttt{CLASS\_DIAGRAMS = YES}
+    \end{itemize}
+  \item Se pueden generar gráficos avanzados (GraphViz + \texttt{HAVE\_DOT =
+      YES}):
+    \begin{itemize}
+    \item \texttt{GRAPHICAL\_HIERARCHY} (por defecto)
+    \item \texttt{rCOLLABORATION\_GRAPH} (por defecto)
+    \item \texttt{CALL\_GRAP}, \texttt{CALLER\_GRAPH}
+    \end{itemize}
+  \end{itemize}
 \end{frame}
 
 \section{Documentación}
