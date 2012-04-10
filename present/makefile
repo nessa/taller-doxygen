@@ -17,8 +17,8 @@ latex:
 clean: 
 	$(RM) *.aux *.toc *.log \
 	*.lof *.lot *.out *.bbl \
-	*.blg *.nav *.vrb *.snm
-	 *~ *\#
+	*.blg *.nav *.vrb *.snm \
+	*~ *\#
 	$(RM) -r auto
 
 clean-all:

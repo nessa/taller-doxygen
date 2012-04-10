@@ -259,23 +259,7 @@ EXTRACT_ALL = YES
 \section{Documentación}
 
 \begin{frame}[fragile]{Bloques de documentación}
-  \begin{minted}[fontsize=\footnotesize]{c++}
-/**
- * Comentario al estilo JavaDoc
- */
-
-///
-/// Comentarios C++ (son tres barras, no dos)
-///
-
-/*!
- * Comentario al estilo Qt
- */
-
-/*****************************************//**
- * Comentario muy visible
- *********************************************/
-  \end{minted}
+  \inputminted[fontsize=\footnotesize]{c++}{../materiales/codigo/coment.cpp}
 \end{frame}
 
 \begin{frame}{Documentación de un elemento\footnote{Todas son opcionales.}}
@@ -299,10 +283,10 @@ EXTRACT_ALL = YES
 
 \begin{frame}{Elementos adicionales}
   \begin{itemize}
-  \item \texttt{@author}:
-  \item \texttt{@date}:
-  \item \texttt{@exception}:
-  \item \texttt{@todo}:
+  \item \texttt{@author}
+  \item \texttt{@date}
+  \item \texttt{@exception}
+  \item \texttt{@todo}
   \item \texttt{@\{ - @\}}: Agrupación de elementos.
   \item Otros: \texttt{@class}, \texttt{@union}, \texttt{@enum}, \texttt{@fn}
     (función), \texttt{@file}, \texttt{@typedef}, \texttt{@namespace},
@@ -310,15 +294,36 @@ EXTRACT_ALL = YES
   \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{Ejemplo}
-  \begin{minted}[fontsize=\footnotesize]{c++}
-/// @ {
-/// @name Coordenadas de las ventanas
-float x ;
-float y ;
-/// @ }
-\end{minted}
+\begin{frame}[fragile]{Elementos adicionales}
+  \inputminted[fontsize=\footnotesize,linenos=true]{c++}{../materiales/codigo/elem-adicionales.cpp}
 \end{frame}
+
+\begin{frame}{Ejemplo 2}
+  \begin{enumerate}
+  \item Entra en el subdirectorio \texttt{materiales/ejemplo2} del repositorio
+  \item Genera el doxyfile: \texttt{doxygen -g}
+    \begin{itemize}
+    \item \texttt{HAVE\_DOT = NO}
+    \item \texttt{HAVE\_DOT = YES}
+    \end{itemize}
+  \item Genera la documentación: \texttt{doxygen}
+  \item Visualiza \textit{html/index.html}
+  \end{enumerate}
+
+  \begin{block}{}
+  También se puede probar con \texttt{HAVE\_DOT = YES} en el proyecto de
+    Octave, pero... tarda un poco ;)
+  \end{block}
+\end{frame}
+
+\begin{frame}{Ejemplo 2}
+    \begin{figure}
+      \centering
+      \includegraphics[scale=0.5]{./img/ejemplo2}
+      \caption{Diagrama de colaboración de la clase E}
+    \end{figure}
+\end{frame}
+
 
 \section{Conclusión}
 
